@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import Link from "next/link";
@@ -5,6 +6,15 @@ import { useState } from "react";
 
 export function Navbar(): JSX.Element {
   const [navActive, setNavActive] = useState(false);
+
+  const links = {
+    internals: ["Live", "Calendar", "Replays"],
+
+    externals: [
+      { name: "Drivers", link: "https://www.formula1.com/en/results/2024/drivers" },
+      { name: "Constructors", link: "https://www.formula1.com/en/results/2024/team" },
+    ],
+  };
   return (
     <nav className="flex items-center justify-between z-40 px-4 py-6 fixed w-full bg-black">
       <Link href="/">
@@ -30,37 +40,46 @@ export function Navbar(): JSX.Element {
           navActive ? "flex xl:static flex-col w-full absolute  h-40 top-16 left-0 bg-black" : "hidden xl:flex"
         }  justify-center  items-center p-0 links gap-3 xl:flex-row xl:h-auto xl:w-auto`}
       >
-        <Link href="/live" className="hover:text-red-600">
-          Live
-        </Link>
+        {links.internals.map((link, index) => {
+          return (
+            <Link
+              href={link.toLowerCase()}
+              className="hover:text-red-600"
+              key={index}
+              onClick={() => {
+                setNavActive(!navActive);
+              }}
+            >
+              {link}{" "}
+            </Link>
+          );
+        })}
 
-        <div className="dropdown inline-block relative">
+        <div className="dropdown relative">
           <button className="flex items-center">
             <span>Standings</span>
             <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />{" "}
             </svg>
           </button>
-          <ul className="dropdown-menu absolute left-0 hidden p-4 z-50 bg-black border border-gray-600">
-            <li>
-              <Link href="https://www.formula1.com/en/results/2024/drivers" target="_blank" className="hover:text-red-600">
-                Drivers
-              </Link>
-            </li>
-            <li>
-              <Link href="https://www.formula1.com/en/results/2024/team" target="_blank" className="hover:text-red-600">
-                Constructors
-              </Link>
-            </li>
+          <ul className="dropdown-menu absolute -left-10 rounded-lg hidden p-4 z-50 bg-black border border-gray-600">
+            {Object.values(links.externals).map((link, index) => {
+              return (
+                <Link
+                  href={link.link.toLowerCase()}
+                  className="hover:text-red-600"
+                  key={index}
+                  onClick={() => {
+                    setNavActive(!navActive);
+                  }}
+                  target="_blank"
+                >
+                  {link.name}{" "}
+                </Link>
+              );
+            })}
           </ul>
         </div>
-
-        <Link href="/calendar" className="hover:text-red-600">
-          Calendar
-        </Link>
-        <Link href="/replays" className="hover:text-red-600">
-          Replays
-        </Link>
       </div>
     </nav>
   );
