@@ -14,7 +14,7 @@ export default function Calendar(): JSX.Element {
                 <div className="data text-sm text-gray-600">
                   <p>{content.grandPrix[index].date}</p>
                 </div>
-                <img src={content.grandPrix[index].flag} className="flag w-" alt="flag" />
+                <img src={content.grandPrix[index].flag} className="flag w-1/5" alt="flag" />
               </div>
               <span className="w-full flex justify-center items-center">
                 <img src={content.grandPrix[index].circuit} className="circuit w-4/12" alt="circuit" />
