@@ -18,7 +18,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  background-color: white;
 }
 
 @layer utilities {
@@ -52,10 +52,9 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-
 }
 .overlay {
-  background: linear-gradient(to bottom, #000000d5, #00000046);
+  background: linear-gradient(to right, #000000bb, #00000074);
   position: absolute;
   left: 0;
   top: 0;
@@ -65,5 +64,49 @@ body {
 }
 
 .dropdown:hover .dropdown-menu {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.races-cards {
+
+  .element {
+    background-color: #0000009a;
+  }
+  .flag {
+    width: 12%;
+  }
+
+  .circuit {
+    width: 25%;
+  }
+}
+
+.calendar,
+.live {
+  padding-block: 7rem;
+  margin: 0 auto;
+}
+
+.calendar {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (min-width: 1520px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .element {
+    box-shadow: 0 2px 7px 2px #bebebe84;
+    pointer-events: none;
+  }
+
+  .flag {
+    box-shadow: 0 2px 7px 2px #bebebe;
+    width: 10%;
+  }
 }
