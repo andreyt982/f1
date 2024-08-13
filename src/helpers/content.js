@@ -177,3 +177,35 @@ export const content = {
     },
   ],
 };
+
+export const live = {
+  channels: {
+    dazn: {
+      images: ["/daznf1.svg"],
+
+      links: [
+        "https://deporte-libre.futbol/en-vivo-online/dazn-formula-1-es/embed3.php",
+        "https://deporte-libre.futbol/en-vivo-online/dazn-formula-1-es/embed2.php",
+        "https://dlhd.sx/embed/stream-445.php",
+        "https://dlhd.sx/embed/stream-427.php",
+        "https://deporte-libre.futbol/en-vivo-online/dazn-1-es/embed.php",
+        "https://deporte-libre.futbol/en-vivo-online/dazn-formula-1-es/embed.php",
+      ],
+    },
+    sky: {
+      images: ["/sky.svg"],
+
+      links: [
+        "https://deporte-libre.futbol/en-vivo-online/sky-sports-formula-1/embed2.php",
+        "https://d.daddylivehd.sx/embed/stream-60.php",
+        "https://dlhd.sx/embed/stream-577.php",
+        "https://feedzstream.com/papa.php?hd=319",
+      ],
+    },
+    fox: {
+      images: ["/fox.svg"],
+
+      links: ["https://dlhd.sx/embed/stream-830.php", "https://d.daddylivehd.sx/embed/stream-830.php", "https://dlhd.sx/embed/stream-824.php"],
+    },
+  },
+};
