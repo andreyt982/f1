@@ -15,9 +15,7 @@ export function Hero(): JSX.Element {
               <div className="flex justify-center items-center">
                 <div className="h-7  w-7 md:h-10 md:w-10 bg-red-100 rounded-full flex justify-center items-center animation-pulse"></div>
               </div>
-              <div className="a">
-                <button className="">Watch F1 Live</button>
-              </div>
+              <span className="text-white">Watch F1 Live</span>
             </Link>
           </div>
         </div>

@@ -16,7 +16,7 @@ export function Navbar(): JSX.Element {
     ],
   };
   return (
-    <nav className="flex items-center justify-between z-40 px-4 py-6 fixed w-full bg-black">
+    <nav className="flex items-center justify-between z-40 px-4 py-6 fixed w-full bg-black text-white">
       <Link href="/">
         <img src="/F1_(white).svg" alt="" />
       </Link>
@@ -24,7 +24,7 @@ export function Navbar(): JSX.Element {
         onClick={() => {
           setNavActive(!navActive);
         }}
-        className="xl:hidden w-8 h-8 cursor-pointer text-gray-800 dark:text-white"
+        className="xl:hidden w-8 h-8 cursor-pointertext-white"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
