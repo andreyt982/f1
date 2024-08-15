@@ -19,12 +19,7 @@
 body {
   color: rgb(var(--foreground-rgb));
   background-color: white;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  letter-spacing: -0.025em;
 }
 
 .animation-pulse {
@@ -48,18 +43,20 @@ body {
 }
 
 .hero {
-  background: url("/2.jpg");
+  background: url("/4.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  overflow-y: hidden;
 }
+
 .overlay {
   background: linear-gradient(to right, #000000bb, #00000074);
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   z-index: 2;
 }
 
@@ -69,20 +66,9 @@ body {
   gap: 0.8rem;
 }
 
-.races-cards {
-
-  .element {
-    background-color: #0000009a;
-  }
-  .flag {
-    width: 12%;
-  }
-
-  .circuit {
-    width: 25%;
-  }
+.current-gp {
+  background-color: #0000009a;
 }
-
 .calendar,
 .live {
   padding-block: 7rem;
@@ -90,23 +76,43 @@ body {
 }
 
 .calendar {
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: 1fr;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (min-width: 2100px) {
     grid-template-columns: repeat(3, 1fr);
+    width: 55%;
   }
+}
+.calendar .element {
+  box-shadow: 0 2px 7px 2px #bebebe84;
+  pointer-events: none;
+}
 
-  @media screen and (min-width: 1520px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.calendar .flag {
+  box-shadow: 0 2px 7px 2px #bebebe;
+  width: 15%;
+}
 
-  .element {
-    box-shadow: 0 2px 7px 2px #bebebe84;
-    pointer-events: none;
-  }
+.calendar-active-gp {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 
-  .flag {
-    box-shadow: 0 2px 7px 2px #bebebe;
-    width: 10%;
+.blurr {
+  -webkit-backdrop-filter: blur(1.5px);
+  backdrop-filter: blur(1.5px);
+  padding: 2rem;
+
+  @media screen and (min-width: 768px) {
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
   }
+}
+
+.blurr .flag {
+  box-shadow: none;
 }
