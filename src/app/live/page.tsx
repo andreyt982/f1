@@ -1,10 +1,23 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 import { live } from "@/helpers/content";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Live(): JSX.Element {
-  const [activeVideoSource, setActiveVideoSource] = useState("https://deporte-libre.futbol/en-vivo-online/dazn-formula-1-es/embed3.php");
+  const [windowWidth, setWindowWidth] = useState(0);
+  const [activeVideoSource, setActiveVideoSource] = useState("");
+  useEffect(() => {
+    if (window) {
+      setWindowWidth(window.innerWidth);
+    }
+
+    if (windowWidth < 768) {
+      setActiveVideoSource("https://d.daddylivehd.sx/embed/stream-60.php");
+    } else {
+      setActiveVideoSource("https://deporte-libre.futbol/en-vivo-online/dazn-formula-1-es/embed2.php");
+    }
+  }, [windowWidth]);
+
   return (
     <>
       <div className="live flex items-center justify-center gap-4 md:gap-6 xl:gap-8 w-full">
@@ -34,7 +47,7 @@ export default function Live(): JSX.Element {
           );
         })}
       </div>
-      <iframe width={"100%"} height={"900px"} allowFullScreen src={activeVideoSource} title="iframe"></iframe>
+      <iframe width={"100%"} height={"900px"} allowFullScreen src={activeVideoSource} {...(windowWidth < 768 && { sandbox: "allow-scripts" })} allow="autoplay" title="iframe"></iframe>
     </>
   );
 }
