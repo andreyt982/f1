@@ -22,7 +22,7 @@ export default function Calendar(): JSX.Element {
           <div key={index} className={`${isCurrentGP && `md:col-span-2  min-[2100px]:col-span-3 relative my-10`} border relative element rounded-lg `}>
             <h2 className={`${isCurrentGP ? `absolute -top-12 left-0 border-l-8 border-l-red-600 pl-1 uppercase font-extrabold text-sm md:text-xl lg:text-2xl` : `hidden `}`}>
               <span className="text-black ">Next Race: </span>
-              <span className="text-gray-600">{new Date(grandP.date).toLocaleDateString("en-US", { day: "numeric", month: "long", year: "numeric" })}</span>
+              <span className="text-gray-600">{new Date(grandP.date + "T00:00:00").toLocaleDateString("en-US", { day: "numeric", month: "long", year: "numeric" }) }</span>
             </h2>
 
             <div
