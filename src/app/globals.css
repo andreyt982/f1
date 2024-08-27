@@ -116,3 +116,11 @@ body {
 .blurr .flag {
   box-shadow: none;
 }
+
+.countdown {
+  .f {
+    background-color: #111111;
+    height: 475px;
+    width: 99%;
+  }
+}
