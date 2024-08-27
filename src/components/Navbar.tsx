@@ -8,7 +8,7 @@ export function Navbar(): JSX.Element {
   const [navActive, setNavActive] = useState(false);
 
   const links = {
-    internals: ["Live", "Calendar", "Replays"],
+    internals: ["Live", "Calendar", "Replays", "Countdown"],
 
     externals: [
       { name: "Drivers", link: "https://www.formula1.com/en/results/2024/drivers" },
