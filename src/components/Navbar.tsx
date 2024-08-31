@@ -17,27 +17,30 @@ export function Navbar(): JSX.Element {
   };
   return (
     <nav className="flex items-center justify-between z-40 px-4 py-6 fixed w-full bg-black text-white">
-      <Link href="/">
+      <Link href="/" onClick={()=>{navActive && setNavActive(false)}}>
         <img src="/F1_(white).svg" alt="" />
       </Link>
-      <svg
+
+      <span
+        className="menu xl:hidden cursor-pointer text-white"
         onClick={() => {
           setNavActive(!navActive);
         }}
-        className="xl:hidden w-8 h-8 cursor-pointer text-white"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        fill="none"
-        viewBox="0 0 24 24"
       >
-        <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M5 7h14M5 12h14M5 17h14" />
-      </svg>
+        {navActive ? (
+          <svg className=" text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
+          </svg>
+        ) : (
+          <svg className="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M5 7h14M5 12h14M5 17h14" />
+          </svg>
+        )}
+      </span>
 
       <div
         className={`${
-          navActive ? "flex xl:static flex-col w-full absolute  h-40 top-16 left-0 bg-black" : "hidden xl:flex"
+          navActive ? "flex xl:static flex-col w-full absolute py-6 top-16 left-0 bg-black" : "hidden xl:flex"
         }  justify-center  items-center p-0 links gap-3 xl:flex-row xl:h-auto xl:w-auto`}
       >
         {links.internals.map((link, index) => {
@@ -47,7 +50,7 @@ export function Navbar(): JSX.Element {
               className="hover:text-red-600"
               key={index}
               onClick={() => {
-                setNavActive(!navActive);
+                setNavActive(false);
               }}
             >
               {link}{" "}
