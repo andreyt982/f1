@@ -2,10 +2,12 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 export function Navbar(): JSX.Element {
   const [navActive, setNavActive] = useState(false);
+  const path = usePathname();
 
   const links = {
     internals: ["Live", "Calendar", "Countdown", "Replays"],
@@ -47,7 +49,7 @@ export function Navbar(): JSX.Element {
           return (
             <Link
               href={link.toLowerCase()}
-              className="hover:text-red-600"
+              className={`hover:text-red-600 ${link.toLowerCase() == path.slice(1) ? "text-red-600" : "text-white"}`}
               key={index}
               onClick={() => {
                 setNavActive(false);
