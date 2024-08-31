@@ -24,7 +24,7 @@ export function Navbar(): JSX.Element {
         onClick={() => {
           setNavActive(!navActive);
         }}
-        className="xl:hidden w-8 h-8 cursor-pointertext-white"
+        className="xl:hidden w-8 h-8 cursor-pointer text-white"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
