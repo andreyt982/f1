@@ -1,12 +1,13 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 import { live } from "@/helpers/content";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Live(): JSX.Element {
   const [windowWidth, setWindowWidth] = useState(0);
   const [activeVideoSource, setActiveVideoSource] = useState("");
   const [iframeLoaded, setIframeLoaded] = useState(false);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     setIframeLoaded(false);
@@ -34,12 +35,12 @@ export default function Live(): JSX.Element {
                 <img src={channel[1].images.toString()} width={"200px"} className="shadow-md p-2 md:p-4  rounded-lg cursor-pointer" alt="channel" />
               </button>
 
-              <ul className="dropdown-menu absolute left-0  hidden z-50 bg-white rounded-lg text-black shadow-2xl border border-gray-200 w-full flex-col" key={index}>
+              <ul className="dropdown-menu absolute left-0  hidden z-50 bg-white rounded-lg text-black shadow-2xl border border-gray-200 w-full flex-col" key={index} ref={dropdownRef}>
                 {channel[1].links.map((link, index) => {
                   return (
                     <li
                       key={index}
-                      className="cursor-pointer p-2  hover:bg-black rounded-lg hover:text-white"
+                      className={`${link == activeVideoSource ? `bg-red-600 text-white` : `bg-white hover:bg-black hover:text-white`}  cursor-pointer p-2  rounded-lg `}
                       onClick={() => {
                         setActiveVideoSource(link);
                       }}
@@ -65,7 +66,7 @@ export default function Live(): JSX.Element {
         </span>
       )}
       <iframe
-      className={!iframeLoaded ? 'hidden' : 'block'}
+        className={!iframeLoaded ? "hidden" : "block"}
         width={"100%"}
         height={"900px"}
         allowFullScreen
