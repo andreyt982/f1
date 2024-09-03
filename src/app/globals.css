@@ -102,6 +102,9 @@ body {
   background-size: cover;
 }
 
+.calendar-active-gp .title-current-gp{
+  text-shadow: 0px 0px 9px black;
+}
 .blurr {
   -webkit-backdrop-filter: blur(1.5px);
   backdrop-filter: blur(1.5px);

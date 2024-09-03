@@ -30,7 +30,7 @@ export default function Calendar(): JSX.Element {
               className={`${isCurrentGP ? ` calendar-active-gp   p-0 text-white col-end-3 ` : `p-4 text-black`}  flex flex-col gap-6 `}
             >
               <div className={`${isCurrentGP && `blurr`} content relative `}>
-                <h2 className={` uppercase font-semibold text-center  ${isCurrentGP ? `text-xl` : `text-md`} `}>{grandP.name}</h2>
+                <h2 className={` uppercase font-semibold text-center  ${isCurrentGP ? `text-xl title-current-gp` : `text-md`} `}>{grandP.name}</h2>
 
                 <div className={`${isCurrentGP ? `` : ``} content`}>
                   <div className="info flex justify-between">
